@@ -1,0 +1,89 @@
+{
+  "debugMode": false,
+  "route_geojson": "route.geojson",
+  "phase2_csv": "phase2_input.csv",
+  "nodes_csv_phase1": "nodes_phase1.csv",
+  "nodes_csv_phase2": "nodes_phase2.csv",
+  "driving_scaler_path": "./scalers_og/driving_scaler.pkl",
+  "road_scaler_path": "./scalers_og/road_scaler.pkl",
+  "model_path": "best_velocity_lstm_model.keras",
+
+  "map_handler": {
+    "downloadPath": null,
+    "fileName": "route.geojson",
+    "driverTimeout": 240,
+    "open_url": "https://www.openstreetmap.org/directions",
+    "debug_print_interval": 5,
+    "url_wait_timeout": 1,
+    "directions_sleep": 1,
+    "download_sleep": 2,
+    "poll_interval": 0.5
+  },
+
+  "route_processor": {
+    "proc_coords_num": 70,
+    "request_timeout": 15.0,
+    "local_base": "http://localhost:8002",
+    "online_base": "https://valhalla1.openstreetmap.de",
+    "per_chunk_parallel": 3,
+    "max_workers": 8,
+    "max_retries": 2
+  },
+
+  "veh_model": {
+    "add_noise": true,
+    "sf_curve": 10,
+    "sf_stop": 4,
+    "stop_dist_csv": "StoppingDistData.csv",
+    "aMax": 2,
+    "aMin": -4,
+    "jMax": 10,
+    "jMin": -10,
+    "kphToMs": 0.277778,
+    "noise_std_spdlim": 1,
+    "noise_std_curv": 1,
+    "horizon_extra": 50,
+    "horizon_array_len": 200,
+    "noise_clip_spdlim": 4.0,
+    "noise_clip_curv": 2.0,
+    "dvdt_gain": 0.5,
+    "dadt_gain": 4,
+    "djdt_gain": 15,
+    "zero_vel_thresh": 0.01,
+    "low_speed_threshold": 3,
+    "stop_margin": 5,
+    "curvFacThd": 5,
+    "intrsHeadThd": 60
+  },
+
+  "inference": {
+    "use_batch_inference": true,
+    "steps_to_predict_at_a_time": 10,
+    "tau_plot": 10,
+    "dt_plot": 1,
+    "filter_on": true,
+    "az_change_th": 60,
+    "seq_alpha": 0.1
+  }
+
+  ,"bev": {
+    "show_plots": true,
+    "params": {
+      "m": 1595.0,
+      "rho": 1.22563,
+      "Af": 2.3316,
+      "CD": 0.28,
+      "Cr": 1.75,
+      "C1": 0.0328,
+      "C2": 4.575,
+      "g": 9.8066,
+      "eta_driveline": 0.92,
+      "eta_motor": 0.91,
+      "eta_bat": 0.90,
+      "P_aux_W": 700.0,
+      "alpha_rb": 0.0411,
+      "eta_rb_max": 0.95,
+      "Capacity_Wh": 62000.0
+    }
+  }
+}
