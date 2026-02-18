@@ -1,4 +1,4 @@
-# Project: ProjPhaseII
+# Inference pipeline
 
 This repository contains tools to process a route, run vehicle simulation and LSTM inference, and compute BEV energy estimates.
 
@@ -109,3 +109,4 @@ pip install numpy pandas scipy matplotlib requests selenium joblib tensorflow sc
 ## Contact
 
 If you need help running the pipeline, provide the output/error messages and I can assist further.
+
